@@ -1,6 +1,6 @@
 # PollMe
 A PHP-based web app for creating online polls. Features include:
-- Shareable links with unique word-based IDs.
+- Shareable links with unique word-based IDs (generated in poll.class.php).
 - Robust login/signup system which allows users to maintain a list of created polls.
 - The option to restrict duplicate votes based on either browser session or IP address.
 

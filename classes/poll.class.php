@@ -258,8 +258,13 @@ class Poll
       [$secret]
     );
 
+    // A duplicate word-pair might be found if either:
+    //   - All unique pairs are taken - unlikely as this requires 25,000,000 polls given max_word = 5000.
+    //   - The word list has been altered, causing the same pair to hit again.
+    // I overcome this by using the poll id (guaranteed unique) appended to a word (to keep the URL difficult to guess).
+    
     if ($duplicate_secret) {
-      $secret .= $this->id;
+      $secret = $"{$word_pair[0]}-{$this->id}";
     }
 
     //Update secret in db
